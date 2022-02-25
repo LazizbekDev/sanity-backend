@@ -10,7 +10,7 @@
     z-index: 2;
 
     background-color: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(9px);
     // border: 1px solid rgba(255, 255, 255, 0.18);
 
     &-logo {
@@ -106,7 +106,7 @@
                 }
     
                 a {
-                    
+                    color: var(--gray-color);
                     text-decoration: none;
                     font-family: 'Montserrat', sans-serif;
                     text-transform: uppercase;
@@ -134,7 +134,7 @@
 }
 
 .none {
-    right: -100%;
+    right: -150%;
     animation-name: closeMenu;
     animation-duration: .5s;
     animation-iteration-count: 1;
@@ -176,7 +176,6 @@
     0% {
         top: 0;
         left: 0;
-        opacity: 1;
         transform: rotate(10deg);
     }
     30% {

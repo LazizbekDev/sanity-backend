@@ -10,7 +10,6 @@ const Navbar = () => {
 
     const toggler = () => {
         setToggle(!toggle ? true : !toggle)
-        console.log(toggle)
     }
 
     return (

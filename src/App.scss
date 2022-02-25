@@ -187,3 +187,8 @@
         padding: 2rem;
     }
 }
+
+::selection {
+    color: #fff;
+    background: #000;
+}
