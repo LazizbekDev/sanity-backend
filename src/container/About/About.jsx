@@ -9,12 +9,9 @@ const About = () => {
 
   useEffect( async () => {
     const query = '*[_type == "abouts"]'
-    // const wt = () => {
-      const res = await client.fetch(query)
-      setAbouts(res)
-      console.log(res)
-    // }
-    // return () => wt()
+    const res = await client.fetch(query)
+    setAbouts(res)
+    console.log(res)
   }, [])
   const dummyData = [
     {title:'Bu Men', desc: "Men o'zim bilgan ko'p narsalarni Allohning izni ila o'zim o'rgandim!", url: images.about01},
