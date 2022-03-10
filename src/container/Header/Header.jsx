@@ -1,6 +1,7 @@
 import React from 'react'
 import { images } from '../../constants/index';
 import { motion } from 'framer-motion';
+import ReactTypingEffect from 'react-typing-effect';
 import './Header.scss'
 import { AppWrap } from '../../wrapper';
 
@@ -27,7 +28,9 @@ const Header = () => {
             <span>🙌</span>
             <div style={{ marginLeft: 20 }}>
               <p className="p-text">Hello, i'm</p>
-              <h1 className="heat-text">Laziz</h1>
+              <h1 className="heat-text">
+                  <ReactTypingEffect text={['Lazi!', '17y.o!']} />
+              </h1>
             </div>
           </div>
 

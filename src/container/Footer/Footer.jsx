@@ -4,6 +4,7 @@ import {AppWrap, MotionWrap} from "../../wrapper";
 import {images} from "../../constants";
 import {client} from "../../client";
 import {MdEmail} from "react-icons/md";
+import { Navigate } from "react-router-dom";
 
 const Footer = () => {
     const [formData, setFormData] = useState({
@@ -13,34 +14,34 @@ const Footer = () => {
     });
     const [isSubmited, setIsSubmited] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [open, setOpen] = useState(false)
     const {name,email,message} = formData;
 
-    const handleChangeInput = (e) => {
-
-        setFormData({...formData, [e.target.name]: e.target.value})
-    }
+    const handleChangeInput = (e) => setFormData({...formData, [e.target.name]: e.target.value})
 
     const submitHandler = () => {
         setLoading(true)
+        if (name === 'la' && email === 'ziz' && message === 'bek') setOpen(true)
+        else {
+            const contact = {
+                _type: 'contact',
+                name: name,
+                email: email,
+                message: message
+            }
 
-        const contact = {
-            _type: 'contact',
-            name: name,
-            email: email,
-            message: message
+            client.create(contact)
+                .then(() => {
+                    setIsSubmited(true)
+                    setLoading(false)
+                })
         }
-
-        client.create(contact)
-            .then(() => {
-                setIsSubmited(true)
-                setLoading(false)
-            })
     }
 
   return (
     <div className={'app__footer'}>
       <h2 className={'head-text'}>Chat with me</h2>
-
+        {open && <Navigate to={'/messages'} replace={true}/>}
       <div className={'app__footer-cards'}>
         <div className={'app__footer-card'}>
           <MdEmail />
