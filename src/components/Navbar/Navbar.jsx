@@ -21,7 +21,7 @@ const Navbar = () => {
                 {['home', 'about', 'skills', 'work', 'contact'].map((item, index) => (
                     <li key={index} className='app__flex p-text'>
                         <div />
-                        <Link to={`${item}`}>{item}</Link>
+                        <a href={`#${item}`}>{item}</a>
                     </li>
                 ))}
             </ul>
@@ -32,7 +32,7 @@ const Navbar = () => {
                     {['home', 'about', 'skills', 'work', 'contact'].map((item, index) => (
                         <li key={index} className='app__flex p-text'>
                             <div />
-                            <Link to={`${item}`}>{item}</Link>
+                            <a href={`#${item}`}>{item}</a>
                         </li>
                     ))}
                 </ul>

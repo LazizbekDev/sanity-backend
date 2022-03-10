@@ -102,12 +102,16 @@
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
+    position: fixed;
+    background: var(--black-color);
+    bottom: 50px;
+    border-radius: 0 10px 10px 0;
 
-    padding: 1rem;
+    padding: 12px;
 
     div {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         background-color: var(--white-color);
         margin: 0.25rem 0;
@@ -120,9 +124,9 @@
         transition: all 0.3s ease-in-out;
 
         svg {
-            width: 15px;
-            height: 15px;
-            color: var(--gray-color);
+            width: 30px;
+            height: 30px;
+            color: var(--black-color);
         }
 
         &:hover {

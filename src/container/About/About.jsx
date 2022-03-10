@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { images } from '../../constants'
 import './About.scss'
 import { urlFor, client } from '../../client';
+import { AppWrap, MotionWrap } from '../../wrapper';
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
 
   useEffect( async () => {
-    const query = '*[_type == "abouts"]'
-    const res = await client.fetch(query)
-    setAbouts(res)
-    console.log(res)
+      const query = '*[_type == "abouts"]';
+      const msgs = '*[_type == "contact"]';
+
+      const fetchData = async () => {
+          const res = await client.fetch(query)
+          const datamsg = await client.fetch(msgs)
+          setAbouts(res)
+          console.log(datamsg)
+      }
+      fetchData()
   }, [])
-  const dummyData = [
-    {title:'Bu Men', desc: "Men o'zim bilgan ko'p narsalarni Allohning izni ila o'zim o'rgandim!", url: images.about01},
-    {title:'O\'zbek', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur provident culpa numquam ad officiis dolorem reiciendis perferendis, unde eum facere, magni, corporis repellendus in neque excepturi nostrum reprehenderit enim totam?", url: images.about02},
-    {title:'Hammisi yaxshi bo\'ladi', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, quis! Architecto, cum debitis praesentium illum perferendis aperiam eligendi laborum similique?", url: images.about03}
-  ]
 
   return (
-    <>
+    <div>
       <h2 className="head-text">
         I Know that
         <span> Good Design </span>
@@ -42,8 +43,12 @@ const About = () => {
           </motion.div>
         ))}
       </div>
-    </>
+    </div>
   )
 }
 
-export default About
+export default AppWrap(
+    MotionWrap(About, 'app__about'),
+    'about',
+    'app__whitebg'
+)
