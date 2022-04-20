@@ -1,44 +1,30 @@
-import React from 'react'
-import {
-    TiSocialLinkedinCircular,
-    TiSocialInstagramCircular,
-    TiSocialGithubCircular,
-    TiSocialFacebookCircular
-} from 'react-icons/ti';
-import { RiTelegramLine } from 'react-icons/ri'
+import React, { useState, useEffect } from 'react'
+import { client, urlFor } from '../client';
 
 const SocialMedia = () => {
+    const [socials, setSocials] = useState([]);
+
+    useEffect(() => {
+        const query = '*[_type == "socials"]'
+
+        const fetchData = async () => {
+            const res = await client.fetch(query);
+
+            setSocials(res)
+        }
+
+        fetchData();
+    }, [])
+
     return (
         <div className='app__social'>
-            <a href='https://www.linkedin.com/in/lazizbek-tojiboyev-24185420b' target="_blank">
-                <div>
-                    <TiSocialLinkedinCircular />
-                </div>
-            </a>
-
-            <a href='https://instagram.com/mern.me' target="_blank">
-                <div>
-                    <TiSocialInstagramCircular />
-                </div>
-            </a>
-
-            <a href='' target="_blank">
-                <div>
-                    <TiSocialFacebookCircular />
-                </div>
-            </a>
-
-            <a href='https://t.me/mernme' target="_blank">
-                <div>
-                    <RiTelegramLine />
-                </div>                
-            </a>
-
-            <a href='https://github.com/LazizbekDev' target="_blank">
-                <div>
-                    <TiSocialGithubCircular />
-                </div>
-            </a>
+            {socials.map(social => (
+                <a href={social.url} key={social.url} target="_blank" rel="noreferrer">
+                    <div>
+                        <img src={urlFor(social.icon)} alt={social.name} style={{maxWidth: '90%'}} width="40" />
+                    </div>
+                </a>
+            ))}
         </div>
     )
 }

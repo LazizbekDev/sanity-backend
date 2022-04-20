@@ -29,7 +29,7 @@ const Header = () => {
             <div style={{ marginLeft: 20 }}>
               <p className="p-text">Hello, i'm</p>
               <h1 className="heat-text">
-                  <ReactTypingEffect text={['Lazi!', '17y.o!']} />
+                  <ReactTypingEffect text={['Laziz', '17y.o!']} />
               </h1>
             </div>
           </div>

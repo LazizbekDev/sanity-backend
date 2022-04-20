@@ -7,7 +7,7 @@ import { AppWrap, MotionWrap } from '../../wrapper';
 const About = () => {
   const [abouts, setAbouts] = useState([]);
 
-  useEffect( async () => {
+  useEffect(() => {
       const query = '*[_type == "abouts"]';
       const msgs = '*[_type == "contact"]';
 

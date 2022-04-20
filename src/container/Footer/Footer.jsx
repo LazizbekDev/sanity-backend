@@ -23,6 +23,10 @@ const Footer = () => {
         setLoading(true)
         if (name === 'la' && email === 'ziz' && message === 'bek') setOpen(true)
         else {
+            if (name === '' || email === '' || message === '') {
+                setIsSubmited(false)
+                setLoading(false)
+            };
             const contact = {
                 _type: 'contact',
                 name: name,
@@ -71,6 +75,7 @@ const Footer = () => {
                         placeholder="Your Name"
                         onChange={handleChangeInput}
                         value={name}
+                        required
                         name="name" />
                 </div>
                 <div className="app__flex">
