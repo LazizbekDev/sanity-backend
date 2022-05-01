@@ -13,9 +13,8 @@ const About = () => {
 
       const fetchData = async () => {
           const res = await client.fetch(query)
-          const datamsg = await client.fetch(msgs)
+          await client.fetch(msgs)
           setAbouts(res)
-          console.log(datamsg)
       }
       fetchData()
   }, [])

@@ -182,9 +182,22 @@
 
 @media screen and (max-width: 500px) {
 
-    .app__navigation,
-    .app__social {
+    .app__navigation {
         display: none;
+    }
+
+    .app__social {
+        bottom: 0;
+        width: 100%;
+        border-radius: 0;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 4px;
+        
+        div {
+            width: 25px;
+            height: 25px;
+        }
     }
 
     .copyright {

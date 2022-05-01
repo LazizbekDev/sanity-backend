@@ -23,10 +23,8 @@ const Footer = () => {
         setLoading(true)
         if (name === 'la' && email === 'ziz' && message === 'bek') setOpen(true)
         else {
-            if (name === '' || email === '' || message === '') {
-                setIsSubmited(false)
-                setLoading(false)
-            };
+            if (name === '' || email === '' || message === '') return;
+            
             const contact = {
                 _type: 'contact',
                 name: name,
