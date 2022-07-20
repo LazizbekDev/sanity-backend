@@ -13,6 +13,7 @@ const Testimonials = () => {
   const query = '*[_type == "testimonials"]';
   const brands = '*[_type == "brands"]';
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     const resFeed = await client.fetch(query);
     const resBrand = await client.fetch(brands);
@@ -25,6 +26,7 @@ const Testimonials = () => {
     console.log(brends)
   }
   const buddy = feedbacks[currentIndex];
+  // noinspection JSValidateTypes
   return (
     <div className={'app__testimonial'}>
       {feedbacks.length && (

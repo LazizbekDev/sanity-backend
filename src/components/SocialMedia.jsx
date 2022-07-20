@@ -13,9 +13,10 @@ const SocialMedia = () => {
             setSocials(res)
         }
 
-        fetchData();
+        fetchData().then(r => console.log(r));
     }, [])
 
+    // noinspection JSValidateTypes
     return (
         <div className='app__social'>
             {socials.map(social => (

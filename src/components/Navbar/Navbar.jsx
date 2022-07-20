@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { BiMenuAltRight } from 'react-icons/bi'
 import { VscCloseAll } from 'react-icons/vsc'
-import { Link } from 'react-router-dom'
 import './Navbar.scss'
 
 const Navbar = () => {

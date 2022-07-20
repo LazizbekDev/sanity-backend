@@ -1,3 +1,5 @@
+// noinspection ES6CheckImport
+
 import React, {useEffect, useState} from 'react';
 import {client} from "../client";
 import './Message.scss'
@@ -8,6 +10,7 @@ const Messages = () => {
     const [dataMessage, setDataMessage] = useState([]);
     const [back, setBack] = useState(false);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(async () => {
         const query = '*[_type == "contact"]';
 

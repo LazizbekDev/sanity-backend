@@ -26,7 +26,7 @@ const Work = () => {
 
       setTimeout(() => {
           setAnimateCard({y: 0, opacity: 1})
-          if(item == 'All') {
+          if(item === 'All') {
               setFilterWork(works)
           } else {
               setFilterWork(works.filter(work => work.tags.includes(item)))
@@ -34,7 +34,8 @@ const Work = () => {
       })
   };
 
-  return (
+  // noinspection JSValidateTypes
+    return (
     <>
       <h2 className="head-text">My Creative <span>Portfolio</span> Section</h2>
 
@@ -43,7 +44,7 @@ const Work = () => {
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
-            className={`app__work-filter-item app__flex p-text ${activeFilter == item ? 'item-active' : ''}`}
+            className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}
           >
             {item}
           </div>
